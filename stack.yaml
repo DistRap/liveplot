@@ -1,18 +1,18 @@
 # For more information, see: http://docs.haskellstack.org/en/stable/yaml_configuration.html
 
 # Specifies the GHC version and set of packages available (e.g., lts-3.5, nightly-2015-09-21, ghc-7.10.2)
-resolver: lts-8.9
+resolver: lts-9.1
 
 # Local packages, usually specified by relative directory name
 packages:
 - '.'
 - location:
-    git: 'https://git.48.io/andromeda/'
-    commit: 26e8e1a5fcd5e3359dba6834fd4d929e92483c58
+    git: https://github.com/jaredloomis/andromeda/
+    commit: 34c69c151aac69c5c6459fbe7caa5c235f98e6a2
   extra-dep: true
 - location:
     git: 'https://git.48.io/mvc/'
-    commit: bf1401391096ebfa3089d8f4de2141d2c21ddea7
+    commit: 6c3b8870f9ef4d3d14dffba5199001acaf387c11
   extra-dep: true
 
 # Packages to be pulled from upstream that are not in the resolver (e.g., acme-missiles-0.3)
