@@ -11,7 +11,7 @@ packages:
     commit: 34c69c151aac69c5c6459fbe7caa5c235f98e6a2
   extra-dep: true
 - location:
-    git: 'https://git.48.io/mvc/'
+    git:  https://github.com/sorki/Haskell-MVC-Library/
     commit: 6c3b8870f9ef4d3d14dffba5199001acaf387c11
   extra-dep: true
 
