@@ -5,6 +5,7 @@ module Graphics.Liveplot.Utils(
   , cnf
   , cnfEndo
   , rpad
+  , normalize
   ) where
 
 import Prelude
@@ -13,8 +14,9 @@ import Data.Monoid (All(..), Any(..))
 import Data.Foldable (Foldable, foldMap,foldl',fold)
 import Data.Set (Set)
 import qualified Data.Set as S
+import qualified Pipes.Prelude as P
 
-import Linear
+import Linear hiding (normalize)
 import MVC
 import Graphics.GLUtil.Camera2D
 import Graphics.GLUtil.Camera3D hiding (roll)
@@ -69,3 +71,16 @@ moveCam keys = cnfEndo S.member S.delete
 
 rpad :: Int -> a -> [a] -> [a]
 rpad n x xs = xs ++ (take (n-(length xs)) $ repeat x)
+
+scaleRange :: Fractional a => (a, a) -> (a, a) -> a -> a
+scaleRange (fromLow, fromHigh) (toLow, toHigh) x = (x - fromLow) * (toHigh - toLow) / (fromHigh - fromLow) + toLow
+
+normRange :: Fractional a => (a, a) -> a -> a
+normRange from = scaleRange from (-1, 1)
+
+graphRange :: Fractional a => (a, a) -> a -> a
+graphRange from = scaleRange from (0, 1)
+
+-- normalize input from range to graph range (0..1)
+normalize :: (Fractional b, Monad m) => (b, b) -> Pipe b b m r
+normalize from = P.map (graphRange from)
