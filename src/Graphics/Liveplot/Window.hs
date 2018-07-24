@@ -44,6 +44,16 @@ lineGraph name scale' offset = (defGI
   , graph_scale = scale'
   }, 0)
 
+-- line graph with number of points argument
+lineGraphN :: Int -> String -> (Float, Float) -> (Int, Int) -> (GraphInfo, GLfloat)
+lineGraphN points name scale' offset = (defGI
+  { graph_name = name
+  , graph_points = points
+  , graph_samples = points
+  , graph_resolution = points
+  , graph_offset = offset
+  , graph_scale = scale'
+  }, 0)
 -- add scroll input callback
 -- http://www.glfw.org/docs/latest/input_guide.html#scrolling
 ogl :: (Plottable a) => [(GraphInfo, a)]

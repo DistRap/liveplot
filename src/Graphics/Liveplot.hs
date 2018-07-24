@@ -1,16 +1,19 @@
 module Graphics.Liveplot (
     runLiveplot
   , named
-  , initGraph
-  , lineGraph
   , SensorReading(..)
   , GLApp
   , Event
   , GLfloat
-  , rpad
-  , ogl) where
+  , ogl
+  , module Graphics.Liveplot.Utils
+  , module Graphics.Liveplot.Window
+  , module MVC
+  , module MVC.Prelude
+  ) where
 
 import MVC
+import MVC.Prelude
 import Graphics.Liveplot.Window
 import Graphics.Liveplot.Types
 import Graphics.Liveplot.Utils
