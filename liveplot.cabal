@@ -1,5 +1,5 @@
 name:                liveplot
-version:             0.0.1
+version:             0.1.0.0
 synopsis:            Liveplotting
 
 description:         Live plotting with OpenGL. This Haskell library allows feeding live data via Pipes to OpenGL plots.
